@@ -32,6 +32,21 @@ namespace BugetApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BugetApi", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                // Defineste una sau mai multe politici CORS
+                options.AddPolicy("AllowAll", builder =>
+                    builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowAnyOrigin()
+                );
+                options.AddPolicy("AllowReact", builder =>
+                    builder.AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .WithOrigins(Configuration["Frontend"])
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +62,8 @@ namespace BugetApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 
