@@ -1,0 +1,9 @@
+
+id
+Data (Luna AN)
+NumeUtilizator?
+Departament
+Denumire
+suma
+CheltuialaObligatorie (font rosu)
+IsCheltuit (bold)

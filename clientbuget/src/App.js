@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/fetchdata" element={<FetchData />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="" element
         </Routes>
       </Layout>
     </BrowserRouter>
